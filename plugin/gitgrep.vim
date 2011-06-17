@@ -11,6 +11,11 @@ if !exists('g:git_grep_command')
   let g:git_grep_command = 'git grep -n '
 endif
 
+if !exists('g:git_grep_no_map')
+  nnoremap <silent> <Leader>gg :GitGrepPrompt<CR>
+  nnoremap <silent> <Leader>gw :GitGrepWord<CR>
+endif
+
 function! s:GitGrep(...)
   let expr = g:git_grep_command . '"' . join(a:000,' ') . '"'
   cgetexpr system(expr)
