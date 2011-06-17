@@ -31,6 +31,5 @@ function! s:GitGrepPrompt()
   call s:GitGrep(input('git grep for: '))
 endfunction
 
-command! -nargs=+ GitGrep :call s:GitGrep(<f-args>)
 command! -nargs=0 GitGrepWord :call s:GitGrepWord()
-command! -nargs=0 GitGrepPrompt :call s:GitGrepPrompt()
+command! -nargs=0 GitGrepPrompt :call s:GitGrep()
