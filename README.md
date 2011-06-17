@@ -6,13 +6,13 @@ This plugin adds keymappings to interact with git-grep from vim.
 
 ### GitGrep ###
 
-Prompt for grep terms.  Grep terms are wrapped in a double-quote so you will need to escape double-quotes in your search term.
+Prompt for grep terms.  Grep terms are wrapped in a double-quote.
 
 `<Leader>gg`
 
 ### GitGrepWord ###
 
-Grep the word under the cursor
+Grep the word under the cursor.
 
 `<Leader>gw`
 
