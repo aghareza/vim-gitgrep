@@ -12,10 +12,10 @@ if !exists('g:git_grep_command')
 endif
 
 function! s:GitGrep(...)
-  let expr = g:git_grep_command.join(a:000, ' ')
+  let expr = g:git_grep_command . '"' . join(a:000,' ') . '"'
   cgetexpr system(expr)
   cwin
-  echo 'Number of matches: '.len(getqflist())
+  echo 'Number of matches: ' . len(getqflist())
 endfunction
 
 function! s:GitGrepWord()
