@@ -1,6 +1,10 @@
+" File: gitgrep.vim
+" Author: Ali Aghareza <aghareza AT gmail DOT com>
+
 if exists("g:loaded_gitgrep") || &cp
     finish
 endif
+
 let g:loaded_gitgrep = 1
 
 if !exists('g:git_grep_command')
@@ -18,5 +22,10 @@ function! s:GitGrepWord()
   call s:GitGrep(expand("<cword>"))
 endfunction
 
+function! s:GitGrepPrompt()
+  call s:GitGrep(input('git grep for: '))
+endfunction
+
 command! -nargs=+ GitGrep :call s:GitGrep(<f-args>)
 command! -nargs=0 GitGrepWord :call s:GitGrepWord()
+command! -nargs=0 GitGrepPrompt :call s:GitGrepPrompt()
