@@ -1,19 +1,25 @@
 # gitgrep.vim #
 
-This plugin adds keymappings to interact with git-grep from vim.
+This plugin adds command and keymappings to interact with git-grep from vim.
 
 ## Usage ##
 
-### GitGrep ###
+### Commands ###
 
-Prompt for grep terms.  Grep terms are wrapped in a double-quote.
+#### GitGrep ####
 
-`<Leader>gg`
+Grep terms are wrapped in a double-quote.
 
-### GitGrepWord ###
+	:GitGrep <search_terms>
+
+#### GitGrepWord ####
 
 Grep the word under the cursor.
 
-`<Leader>gw`
+	:GitGrepWord
+
+Keymapping
+
+  `<Leader>gw`
 
 

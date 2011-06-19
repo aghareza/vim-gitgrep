@@ -4,7 +4,6 @@
 if exists("g:loaded_gitgrep") || &cp
     finish
 endif
-
 let g:loaded_gitgrep = 1
 
 if !exists('g:git_grep_command')
@@ -12,7 +11,6 @@ if !exists('g:git_grep_command')
 endif
 
 if !exists('g:git_grep_no_map')
-  nnoremap <silent> <Leader>gg :GitGrepPrompt<CR>
   nnoremap <silent> <Leader>gw :GitGrepWord<CR>
 endif
 
@@ -27,9 +25,5 @@ function! s:GitGrepWord()
   call s:GitGrep(expand("<cword>"))
 endfunction
 
-function! s:GitGrepPrompt()
-  call s:GitGrep(input('git grep for: '))
-endfunction
-
 command! -nargs=0 GitGrepWord :call s:GitGrepWord()
-command! -nargs=0 GitGrepPrompt :call s:GitGrep()
+command! -nargs=+ GitGrep     :call s:GitGrep(<f-args>)
