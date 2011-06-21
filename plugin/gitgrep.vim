@@ -14,8 +14,8 @@ if !exists('g:git_grep_no_map')
   nnoremap <silent> <Leader>gw :GitGrepWord<CR>
 endif
 
-function! s:GitGrep(...)
-  let expr = g:git_grep_command . '"' . join(a:000,' ') . '"'
+function! s:GitGrep(terms)
+  let expr = g:git_grep_command.'"'.a:terms.'"'
   cgetexpr system(expr)
   cwin
   echo 'Number of matches: ' . len(getqflist())
@@ -26,4 +26,4 @@ function! s:GitGrepWord()
 endfunction
 
 command! -nargs=0 GitGrepWord :call s:GitGrepWord()
-command! -nargs=+ GitGrep     :call s:GitGrep(<f-args>)
+command! -nargs=+ GitGrep     :call s:GitGrep(<q-args>)
